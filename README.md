@@ -12,7 +12,7 @@ This implementation is based on Python3. To run the code, you need the following
 * scikit-learn==0.24.2
 * CUDA Version: 11.0
 # Datasets
-The data folder contains four homophilic benchmark datasets(Cora, Citeseer, Pubmed, Computers), and four heterophilic datasets(Chameleon, Squirrel, Cornell, Texas) from [CPF]([https://github.com/BUPT-GAMMA/CPF/tree/master]) and [T2-GNN]([https://github.com/jindi-tju/T2-GNN]). We use the same experimental setting (48\%/32\%/20\% random splits for train/validation/test with the same random seeds, epochs, run ten times, early stopping) as [BernNet](https://github.com/ivam-he/BernNet).   
+The data folder contains four homophilic benchmark datasets(Cora, Citeseer, Pubmed, Computers), and four heterophilic datasets(Chameleon, Squirrel, Cornell, Texas) from [CPF](https://github.com/BUPT-GAMMA/CPF/tree/master) and [T2-GNN](https://github.com/jindi-tju/T2-GNN). We use the same experimental setting (48\%/32\%/20\% random splits for train/validation/test with the same random seeds, epochs, run ten times, early stopping) as [BernNet](https://github.com/ivam-he/BernNet).   
 # Run an experiment:
     $ python train_teacher.py --model GCN --dataset cora
     $ python train_student.py --teacher GCN --dataset cora
