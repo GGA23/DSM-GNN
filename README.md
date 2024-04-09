@@ -18,7 +18,7 @@ The data folder contains four homophilic benchmark datasets(Cora, Citeseer, Pubm
     $ python train_student.py --teacher GCN --dataset cora
 # Examples
  Training a model on the default dataset.  
-![image](https://github.com/GGA23/DSM-GNN/blob/main/example.gif)
+![image](https://github.com/GGA23/DSM-GNN/blob/main/KD-demo-.gif)
 
 # Baselines links
 * [H2GCN](https://github.com/GitEventhandler/H2GCN-PyTorch)
