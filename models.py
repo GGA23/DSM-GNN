@@ -5,34 +5,7 @@ from dgl.nn import GraphConv, SAGEConv, APPNPConv, GATConv
 from torch.nn.modules.module import Module
 import math
 from torch.nn.parameter import Parameter
-'''
-class Attention(Module):
-    def __init__(self, in_features):
-        super(Attention, self).__init__()
-        self.in_features = in_features
-        self.weight_a, self.weight_h = Parameter(
-            torch.FloatTensor(in_features, in_features)), Parameter(
-            torch.FloatTensor(in_features, in_features))
 
-        self.att_vec_v = Parameter(torch.FloatTensor(2*in_features, 1))
-
-    def reset_parameters(self):
-        stdv = 1. / math.sqrt(self.weight_h.size(1))
-        std_att_vec = 1. / math.sqrt(self.att_vec_v.size(1))
-
-        self.weight_h.data.uniform_(-stdv, stdv)
-        self.weight_a.data.uniform_(-stdv, stdv)
-
-        self.att_vec_v.data.uniform_(-std_att_vec, std_att_vec)
-
-    def forward(self, output_a, output_h):  #
-        Za = F.tanh(torch.mm(output_a, self.weight_a))
-        Zh = F.tanh(torch.mm(output_h, self.weight_h))
-        Z = torch.cat([Za, Zh], dim=1)
-        alpha = F.sigmoid(torch.mm(Z, self.att_vec_v))
-        Z = alpha*Za + (1-alpha)*Zh
-        return Z
-'''
 class Atten(Module):
     def __init__(self, in_features):
         super(Atten, self).__init__()
