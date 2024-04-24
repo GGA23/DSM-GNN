@@ -93,8 +93,8 @@ def load_small_data(dataset):
     adj_sp = adj.tocoo()
     g = dgl.graph((adj_sp.row, adj_sp.col))
     g.ndata["feat"] = features
-    dense_adj_tensor = torch.from_numpy(adj_sp.toarray().astype(np.float32))
-    dense_adj_tensor = torch.FloatTensor(dense_adj_tensor)
+    sp_adj_tensor = torch.from_numpy(adj_sp.toarray().astype(np.float32))
+    sp_adj_tensor = torch.FloatTensor(sp_adj_tensor)
 
     labels = np.vstack((ally, ty))
     labels[test_idx_reorder, :] = labels[test_idx_range, :]
@@ -111,7 +111,7 @@ def load_small_data(dataset):
     idx_val = torch.LongTensor(idx_val)
     idx_test = torch.LongTensor(idx_test)
 
-    return dense_adj_tensor,  g, labels, idx_train, idx_val, idx_test
+    return sp_adj_tensor,  g, labels, idx_train, idx_val, idx_test
 def load_large_data(dataset, seed, labelrate_train, labelrate_val):
     data_path = Path.cwd().joinpath("./data", f"{dataset}.npz")
     if os.path.isfile(data_path):
@@ -183,12 +183,12 @@ def load_hete_data(dataset, repeat):
     adj_sp = adj.tocoo()
     g = dgl.graph((adj_sp.row, adj_sp.col))
     g.ndata["feat"] = features
-    dense_adj_tensor = torch.from_numpy(adj_sp.toarray().astype(np.float32))
-    dense_adj_tensor = torch.FloatTensor(dense_adj_tensor)
+    sp_adj_tensor = torch.from_numpy(adj_sp.toarray().astype(np.float32))
+    sp_adj_tensor = torch.FloatTensor(sp_adj_tensor)
     print(dataset, nclass)
 
 
-    return dense_adj_tensor, g, label, idx_train, idx_val, idx_test
+    return sp_adj_tensor, g, label, idx_train, idx_val, idx_test
 
 class SparseGraph:
     """Attributed labeled graph stored in sparse matrix form."""
