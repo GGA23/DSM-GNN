@@ -128,7 +128,7 @@ def run(args, repeat):
     logger.info(f"out_t_dir: {out_t_dir}")
 
     """ Load data and model config"""
-    dense_adj_tensor, g, labels, idx_train, idx_val, idx_test = load_data(
+    sp_adj_tensor, g, labels, idx_train, idx_val, idx_test = load_data(
         args.dataset,
         args,
         repeat
@@ -140,7 +140,7 @@ def run(args, repeat):
     g = g.to(device)
     feats = g.ndata["feat"]
     feats = feats
-    dense_adj_tensor = dense_adj_tensor
+    sp_adj_tensor = sp_adj_tensor
     #labels_one_hot = labels_one_hot
     args.feat_dim = g.ndata["feat"].shape[1]
     args.num_nodes = g.ndata["feat"].shape[0]
@@ -191,11 +191,11 @@ def run(args, repeat):
 
     """Data split and run"""
     loss_and_score = []
-    pos_emb, Sim_neg = get_pos_neg_pair(dense_adj_tensor, feats, out_t, out_emb_t, args, device)
+    pos_emb, Sim_neg = get_pos_neg_pair(sp_adj_tensor, feats, out_t, out_emb_t, args, device)
     out, score_val, score_test = distill_run_transductive(
             conf,
             model,
-            dense_adj_tensor,
+            sp_adj_tensor,
             feats,
             labels,
             out_t, #soft_label
