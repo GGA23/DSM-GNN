@@ -21,7 +21,7 @@ The data folder contains four homophilic benchmark datasets(Cora, Citeseer, Pubm
 ![image](https://github.com/GGA23/DSM-GNN/blob/main/KD-demo-cora.gif)
 # Experiments on large-scale datasets
 Due to the limited space of the original manuscript, some experimental results on large-scale datasets are presented here.
-![image]()
+![image](https://github.com/GGA23/DSM-GNN/blob/main/experiment.JPG)
 # Baselines links
 * [H2GCN](https://github.com/GitEventhandler/H2GCN-PyTorch)
 * [FAGCN](https://github.com/bdy9527/FAGCN)
