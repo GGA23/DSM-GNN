@@ -19,9 +19,7 @@ The data folder contains four homophilic benchmark datasets(Cora, Citeseer, Pubm
 # Examples
  Training a model on the default dataset.  
 ![image](https://github.com/GGA23/DSM-GNN/blob/main/KD-demo-cora.gif)
-# Experiments on supplementary datasets
-Due to the limited space of the original manuscript, some experimental results on other datasets are presented here.
-![image](https://github.com/GGA23/DSM-GNN/blob/main/experiment.JPG)
+
 # Baselines links
 * [H2GCN](https://github.com/GitEventhandler/H2GCN-PyTorch)
 * [FAGCN](https://github.com/bdy9527/FAGCN)
